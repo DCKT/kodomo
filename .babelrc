@@ -1,13 +1,4 @@
 {
   "presets": ["react-native"],
-  "plugins": [
-    [
-      "module-resolver",
-      {
-        "alias": {
-          "@root": "./src"
-        }
-      }
-    ]
-  ]
+  "plugins": ["preval"]
 }

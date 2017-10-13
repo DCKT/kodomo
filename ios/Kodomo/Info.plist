@@ -54,6 +54,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Dopestyle.ttf</string>
+		<string>Sketch 3D.otf</string>
 	</array>
 </dict>
 </plist>
