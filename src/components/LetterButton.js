@@ -7,12 +7,13 @@ import glamorous from 'glamorous-native'
  * Styles
  */
 const Button = glamorous.touchableOpacity({
-  width: 60,
-  height: 60,
+  width: 80,
+  height: 80,
   backgroundColor: '#fff',
   borderRadius: 10,
   marginRight: 10,
-  marginBottom: 10
+  marginTop: 10,
+  elevation: 2
 })
 
 const ButtonContent = glamorous.view({
@@ -24,7 +25,7 @@ const ButtonContent = glamorous.view({
 const ButtonText = glamorous.text({
   color: '#111',
   textAlign: 'center',
-  fontSize: 20,
+  fontSize: 32,
   fontWeight: '600'
 })
 

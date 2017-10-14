@@ -3,6 +3,7 @@
 import React from 'react'
 import { Modal as ReactNativeModal, Image } from 'react-native'
 import glamorous from 'glamorous-native'
+import Swiper from 'react-native-swiper'
 
 /**
  * Utils
@@ -28,28 +29,37 @@ const Container = glamorous.view({
 
 const Letter = glamorous.text({
   fontFamily: 'sketch',
-  fontSize: 150,
+  fontSize: 280,
   textAlign: 'center',
   color: '#242424'
+})
+
+const DescriptionBlock = glamorous.view({
+  position: 'absolute',
+  right: 50,
+  zIndex: 2,
+  backgroundColor: '#fff',
+  elevation: 3,
+  paddingHorizontal: 30,
+  borderRadius: 4
 })
 
 const Close = glamorous.touchableopacity({
   position: 'absolute',
   width: 50,
   height: 50,
-  top: 5,
-  right: 5,
-  borderColor: '#242424',
-  borderWidth: 2,
+  top: 15,
+  right: 15,
+  borderColor: '#fff',
+  borderWidth: 4,
   borderRadius: 100
 })
 
 const CloseText = glamorous.text({
   fontSize: 30,
-  fontWeight: '400',
-  color: '#242424',
-  textAlign: 'center',
-  paddingTop: 2
+  fontWeight: '800',
+  color: '#fff',
+  textAlign: 'center'
 })
 
 type Props = {
@@ -60,16 +70,22 @@ type Props = {
 
 export const Modal = ({ isVisible, onRequestClose, currentLetter }: Props) => (
   <ReactNativeModal animationType='slide' transparent={false} visible={isVisible} onRequestClose={onRequestClose}>
-    <Container>
-      <glamorous.View width='65%'>
-        <Picture source={PICTURES[currentLetter]} resizeMode='cover' />
-      </glamorous.View>
-      <glamorous.View width='35%'>
-        <Letter>{currentLetter.toUpperCase()}</Letter>
-      </glamorous.View>
-      <Close onPress={onRequestClose}>
-        <CloseText>X</CloseText>
-      </Close>
-    </Container>
+    <Swiper>
+      {currentLetter &&
+        PICTURES[currentLetter].map((data, i) => (
+          <Container key={i}>
+            <glamorous.View width='100%'>
+              {currentLetter ? <Picture source={data.picture} resizeMode='cover' /> : null}
+            </glamorous.View>
+            <DescriptionBlock>
+              <Letter>{currentLetter.toUpperCase()}</Letter>
+              {currentLetter ? <Letter style={{ fontSize: 98 }}>{data.title}</Letter> : null}
+            </DescriptionBlock>
+            <Close onPress={onRequestClose}>
+              <CloseText>X</CloseText>
+            </Close>
+          </Container>
+        ))}
+    </Swiper>
   </ReactNativeModal>
 )

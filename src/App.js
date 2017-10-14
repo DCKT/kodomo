@@ -17,10 +17,18 @@ import { LETTERS } from './utils/letters'
 const AppContainer = glamorous.view({
   flex: 1,
   flexDirection: 'row',
-  justifyContent: 'center',
+  justifyContent: 'space-around',
   flexWrap: 'wrap',
   alignItems: 'center',
   backgroundColor: '#FFC107'
+})
+
+const AppTitle = glamorous.text({
+  width: '100%',
+  fontFamily: 'sketch',
+  fontSize: 154,
+  color: '#212121',
+  textAlign: 'center'
 })
 
 export default class App extends Component<{}> {
@@ -34,9 +42,21 @@ export default class App extends Component<{}> {
 
     return (
       <AppContainer>
-        {LETTERS.map((letter, i) => <LetterButton key={i} letter={letter} onPress={this._onLetterSelection(letter)} />)}
+        <glamorous.View
+          style={{
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            marginHorizontal: 50
+          }}
+        >
+          <AppTitle>Alphabet</AppTitle>
 
-        <Modal isVisible={isVisible} onRequestClose={this._closeModal} currentLetter={currentLetter} />
+          {LETTERS.map((letter, i) => (
+            <LetterButton key={i} letter={letter} onPress={this._onLetterSelection(letter)} />
+          ))}
+        </glamorous.View>
+        {<Modal isVisible={isVisible} onRequestClose={this._closeModal} currentLetter={currentLetter} />}
       </AppContainer>
     )
   }
