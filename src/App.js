@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react'
 import glamorous from 'glamorous-native'
+import SplashScreen from 'react-native-splash-screen'
 
 /**
  * Components
@@ -35,6 +36,10 @@ export default class App extends Component<{}> {
   state = {
     isVisible: false,
     currentLetter: ''
+  }
+
+  componentDidMount () {
+    SplashScreen.hide()
   }
 
   render () {
