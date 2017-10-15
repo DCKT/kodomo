@@ -58,5 +58,7 @@
 		<string>dopestyle.ttf</string>
 		<string>sketch.otf</string>
 	</array>
+	<key>CodePushDeploymentKey</key>
+	<string>deployment-key-here</string>
 </dict>
 </plist>

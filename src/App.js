@@ -3,6 +3,7 @@
 import React, { Component } from 'react'
 import glamorous from 'glamorous-native'
 import SplashScreen from 'react-native-splash-screen'
+import codePush from 'react-native-code-push'
 
 /**
  * Components
@@ -32,7 +33,7 @@ const AppTitle = glamorous.text({
   textAlign: 'center'
 })
 
-export default class App extends Component<{}> {
+class BaseApp extends Component<{}> {
   state = {
     isVisible: false,
     currentLetter: ''
@@ -76,3 +77,5 @@ export default class App extends Component<{}> {
 
   _closeModal = () => this.setState(state => ({ ...state, isVisible: false }))
 }
+
+export const App = codePush(BaseApp)

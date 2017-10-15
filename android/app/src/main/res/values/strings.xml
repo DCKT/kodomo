@@ -1,3 +1,4 @@
 <resources>
+    <string moduleConfig="true" name="reactNativeCodePush_androidDeploymentKey">kaS4lgt36xo0LFivrQFfAuN5Fq6T95c67cbd-7115-4d2c-951e-d4c3a6c633cd</string>
     <string name="app_name">Kodomo</string>
 </resources>
