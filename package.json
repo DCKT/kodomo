@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "android": "react-native run-android"
+    "android": "react-native run-android",
+    "build:production": "cd android && ./gradlew assembleRelease"
   },
   "dependencies": {
     "glamorous-native": "^1.2.0",
@@ -27,8 +28,6 @@
     "preset": "react-native"
   },
   "rnpm": {
-    "assets": [
-      "./assets/fonts"
-    ]
+    "assets": ["./assets/fonts"]
   }
 }
