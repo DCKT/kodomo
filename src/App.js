@@ -15,6 +15,7 @@ import { Modal } from './components/Modal'
  * Utils
  */
 import { LETTERS } from './utils/letters'
+import { responsive } from './utils/responsive'
 
 const AppContainer = glamorous.view({
   flex: 1,
@@ -28,7 +29,7 @@ const AppContainer = glamorous.view({
 const AppTitle = glamorous.text({
   width: '100%',
   fontFamily: 'sketch',
-  fontSize: 154,
+  fontSize: responsive({ small: 80, default: 120, large: 154 }),
   color: '#212121',
   textAlign: 'center'
 })

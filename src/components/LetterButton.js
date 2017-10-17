@@ -4,11 +4,16 @@ import React from 'react'
 import glamorous from 'glamorous-native'
 
 /**
+ * Utils
+ */
+import { responsive } from '../utils/responsive'
+
+/**
  * Styles
  */
 const Button = glamorous.touchableOpacity({
-  width: 80,
-  height: 80,
+  width: responsive({ small: 60, default: 80 }),
+  height: responsive({ small: 60, default: 80 }),
   backgroundColor: '#fff',
   borderRadius: 10,
   marginRight: 10,
@@ -25,7 +30,7 @@ const ButtonContent = glamorous.view({
 const ButtonText = glamorous.text({
   color: '#111',
   textAlign: 'center',
-  fontSize: 32,
+  fontSize: responsive({ small: 28, default: 32 }),
   fontWeight: '600'
 })
 
