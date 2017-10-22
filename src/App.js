@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 import glamorous from 'glamorous-native'
 import SplashScreen from 'react-native-splash-screen'
 import codePush from 'react-native-code-push'
+import { Text } from 'react-native'
 
 /**
  * Components
@@ -63,7 +64,7 @@ class BaseApp extends Component<{}> {
             <LetterButton key={i} letter={letter} onPress={this._onLetterSelection(letter)} />
           ))}
         </glamorous.View>
-        {<Modal isVisible={isVisible} onRequestClose={this._closeModal} currentLetter={currentLetter} />}
+        <Modal isVisible={isVisible} onRequestClose={this._closeModal} currentLetter={currentLetter} />
       </AppContainer>
     )
   }
